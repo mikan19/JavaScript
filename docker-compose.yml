@@ -3,6 +3,7 @@ version: '3'
 services:
   nginx:
     image: nginx:stable-alpine
+    platform: linux/amd64
     ports:
       - "8080:80"
     volumes:
@@ -16,6 +17,7 @@ services:
 
   mysql:
     image: mysql:5.7
+    platform: linux/amd64
     volumes:
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     environment:
@@ -24,6 +26,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    platform: linux/amd64
     environment:
       - PMA_ARBITRARY=1
       - PMA_HOST=mysql
